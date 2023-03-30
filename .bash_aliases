@@ -42,3 +42,19 @@ alias vd='deactivate'
 alias 'srcbash'='source ~/.bashrc'
 alias 'catbash'='cat ~/.bashrc'
 alias 'nanobash'='nano ~/.bashrc'
+
+#####################################
+# Functions that can be used as alias
+#####################################
+
+# mkdir and cd into that dir:
+mkdcd(){
+        mkdir -p "$1"
+        cd "$1"
+}
+
+# touch and nano file:
+touchnano(){
+	touch "$1"
+	nano "$1"
+}
