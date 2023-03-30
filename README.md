@@ -2,9 +2,9 @@
 This repository is meant to host my precious bash_aliases and Windows terminal wsl configs.
 
 ## WSL windows terminal config:
-### Ubuntu version currently used: 20.04
+
 ### Icon used in tab:
-Penguin icon: ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png
+Penguin icon: ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png<br/>
 Ubuntu icon: https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png
 
 ### Color scheme:
@@ -18,3 +18,6 @@ Cascadia Mono
 
 ### Cursor shape:
 Bar (|)
+
+### Ubuntu version currently used:
+20.04
