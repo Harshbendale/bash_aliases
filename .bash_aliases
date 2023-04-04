@@ -8,13 +8,12 @@ alias gfrbs='git fetch && git branch -v -a'
 alias gsw='git switch'
 alias pull='git pull'
 alias push='git push'
-alias clone='git clone'
 alias gb='git branch'
 alias gad='git add .'
 alias gas='git add *'
 alias gdf='git diff'
 
-# navigation aliases:
+# navigation and directory management aliases:
 alias lsa='ls -a'
 alias lla='ll -a'
 alias lt='ls --human-readable --size -1 -S --classify'
@@ -27,10 +26,11 @@ alias ..6='cd ../../../../../..'
 alias ..7='cd ../../../../../../..'
 alias ..8='cd ../../../../../../../..'
 alias ..9='cd ../../../../../../../../..'
+alias rmr='rm -r'
 
 # grep:
-alias gll='ll | grep'
-alias gls='ls | grep'
+alias gll='ll -a| grep'
+alias gls='ls -a | grep'
 alias gh='history | grep'
 
 # python:
@@ -49,12 +49,23 @@ alias 'nanobash'='nano ~/.bashrc'
 
 # mkdir and cd into that dir:
 mkdcd(){
-        mkdir -p "$1"
-        cd "$1"
+	mkdir -p "$1"
+	cd "$1"
 }
 
-# touch and nano file:
-touchnano(){
-	touch "$1"
-	nano "$1"
+# git clone and pre-commit:
+gclone(){
+	repo_ssh_url="$1"
+	echo "$repo_ssh_url"
+	git clone $repo_ssh_url
+	repo_name=$(basename "$repo_ssh_url" ".${repo_ssh_url##*.}")
+	echo "$repo_name"
+	cd $repo_name
+	if [ -f .pre-commit-config.yaml ]; then
+		echo "[info] Loaded pre-commit-config from this repository."
+	else
+		cp "${bash_aliases_repo}/.pre-commit-config.yaml" .
+		echo "[info] Copied your personal pre-commit file."
+	fi
+	pre-commit install
 }
