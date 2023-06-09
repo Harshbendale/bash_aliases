@@ -1,3 +1,7 @@
+#####################################
+# Set Bash aliases
+#####################################
+
 # git aliases:
 alias gcm='git checkout main'
 alias gst='git status'
@@ -69,3 +73,18 @@ gclone(){
 	fi
 	pre-commit install
 }
+
+#####################################
+# Setting PS1 bash prompt
+#####################################
+
+# show user / super user emoji
+
+set_user() {
+        if sudo -n true 2>/dev/null; then
+                echo -e "\U1F4AA\U1F60E"
+        else
+                echo -e "\U1F60E"
+        fi
+}
+export PS1='$(set_user):\[\e[32m\]\w$(__git_ps1 " (\[\e[31m\]%s\[\e[32m\])")\[\e[0m\]\$ '
