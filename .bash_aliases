@@ -50,7 +50,14 @@ alias vd='deactivate'
 alias 'srcbash'='source ~/.bashrc'
 alias 'catbash'='cat ~/.bashrc'
 alias 'nanobash'='nano ~/.bashrc'
+
+#vim commands
 alias 'vimbash'='vim ~/.bashrc'
+alias 'vimbashalias'='vim ./repos/bash_aliases_repo/bash_aliases/.bash_aliases'
+alias 'fg1'='fg %1'
+alias 'fg2'='fg %2'
+alias 'fg3'='fg %3'
+alias 'fg4'='fg %4'
 
 #####################################
 # Functions that can be used as alias
