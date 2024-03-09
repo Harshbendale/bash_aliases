@@ -16,9 +16,13 @@ alias gb='git branch'
 alias gad='git add .'
 alias gas='git add *'
 alias gdf='git diff'
+alias gdfs='git diff --staged'
+alias gdflc='git diff $(git log -1 --format="%H")'
+alias gdfl2c='git diff -u $(git log -2 --format="%H" | sed -n "2p") $(git log -1 --format="%H")'
 
 # navigation and directory management aliases:
 alias lsa='ls -a'
+alias lsal='ls -al'
 alias lla='ll -a'
 alias lt='ls --human-readable --size -1 -S --classify'
 alias ..='cd ..'
@@ -34,8 +38,8 @@ alias rmr='rm -r'
 
 # grep:
 alias gll='ll -a| grep'
-alias gls='ls -a | grep'
-alias gh='history | grep'
+alias glsa='ls -a | grep'
+alias ghis='history | grep'
 
 # python:
 alias ve='python3 -m venv ./venv'
@@ -46,6 +50,7 @@ alias vd='deactivate'
 alias 'srcbash'='source ~/.bashrc'
 alias 'catbash'='cat ~/.bashrc'
 alias 'nanobash'='nano ~/.bashrc'
+alias 'vimbash'='vim ~/.bashrc'
 
 #####################################
 # Functions that can be used as alias
