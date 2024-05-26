@@ -94,6 +94,39 @@ gclone(){
 	pre-commit install
 }
 
+# git clean local branches that are not present on remote:
+gitcleanlocal(){
+    git fetch --all && git remote prune origin
+
+    # Get the list of branches to delete
+    branches_to_delete=$(git branch -vv | grep ': gone]' | awk '{print $1}' | grep -vE '^(main|master)$' | while read branch; do
+        if [[ $(git log "$branch" --not --remotes) == "" ]]; then
+            echo $branch
+        fi
+    done)
+
+    if [ -z "$branches_to_delete" ]; then
+        echo "No branches to delete."
+        return
+    fi
+
+    # Display the branches to delete
+    echo "The following branches will be deleted:"
+    echo "$branches_to_delete"
+    echo -n "Do you want to proceed? (y/n): "
+    read confirmation
+
+    if [[ $confirmation == "y" || $confirmation == "Y" ]]; then
+        # Delete the branches
+        for branch in $branches_to_delete; do
+            git branch -d $branch
+        done
+        echo "Deleted all branches successfully."
+    else
+        echo "Operation cancelled."
+    fi
+}
+
 #####################################
 # Setting PS1 bash prompt
 #####################################
