@@ -21,8 +21,7 @@ alias gdflc='git diff $(git log -1 --format="%H")'
 alias gdfl2c='git diff -u $(git log -2 --format="%H" | sed -n "2p") $(git log -1 --format="%H")'
 
 # navigation and directory management aliases:
-alias lsa='ls -a'
-alias lsal='ls -al'
+alias lsa='ls -al'
 alias lla='ll -a'
 alias lt='ls --human-readable --size -1 -S --classify'
 alias ..='cd ..'
@@ -46,6 +45,15 @@ alias ve='python3 -m venv ./venv'
 alias va='source ./venv/bin/activate'
 alias vd='deactivate'
 
+# kubectl:
+alias kb='kubectl'
+alias kbgpods='kubectl get pods'
+alias kbgdeps='kubectl get deployments'
+alias kbgsvcs='kubectl get services'
+alias kbgpvs='kubectl get pvs'
+alias kbgpvcs='kubectl get pvcs'
+alias kba='kubectl apply -f'
+
 # bashrc:
 alias 'srcbash'='source ~/.bashrc'
 alias 'catbash'='cat ~/.bashrc'
@@ -53,7 +61,7 @@ alias 'nanobash'='nano ~/.bashrc'
 
 #vim commands
 alias 'vimbash'='vim ~/.bashrc'
-alias 'vimbashalias'='vim ./repos/bash_aliases_repo/bash_aliases/.bash_aliases'
+alias 'vimbashalias'='vim ~/bash_aliases/.bash_aliases'
 alias 'fg1'='fg %1'
 alias 'fg2'='fg %2'
 alias 'fg3'='fg %3'
