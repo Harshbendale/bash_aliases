@@ -1,6 +1,16 @@
 # bash_aliases
 This repository is meant to host my precious bash_aliases and Windows terminal wsl configs.
 
+## Setup
+1. `git clone git@github.com:Harshbendale/bash_aliases.git`
+2. Add this in .bashrc file:
+```bash
+if [ -f "$HOME/bash_aliases/.bash_aliases" ]; then
+    source "$HOME/bash_aliases/.bash_aliases"
+fi
+```
+3. `source ~/.bashrc`
+
 ## WSL windows terminal config:
 
 ### Icon used in tab:
